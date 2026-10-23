@@ -1,0 +1,159 @@
+:root {
+  /* Design tokens */
+  --color-bg: #f4f6f9;
+  --color-surface: #ffffff;
+  --color-text: #14202e;
+  --color-muted: #4a5a6b;
+  --color-border: #d3dae3;
+  --color-accent: #0f4c81;
+  --color-accent-hover: #0b3a63;
+  --color-focus: #0a66c2;
+
+  --color-low-bg: #dff3e4;
+  --color-low-text: #14532d;
+  --color-medium-bg: #fdeec8;
+  --color-medium-text: #6b4200;
+  --color-high-bg: #fbdcdc;
+  --color-high-text: #7f1414;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(20, 32, 46, 0.12);
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-3);
+}
+
+h1 { font-size: 1.6rem; margin: 0 0 var(--space-2); }
+h2 { font-size: 1.2rem; margin: 0 0 var(--space-3); }
+h3 { font-size: 1rem; margin: var(--space-4) 0 var(--space-2); }
+
+.muted { color: var(--color-muted); font-size: 0.9rem; margin: var(--space-1) 0; }
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-4);
+  margin: var(--space-4) 0;
+}
+
+label { display: block; font-weight: 600; margin-bottom: var(--space-2); }
+
+input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-muted);
+  border-radius: var(--radius);
+}
+
+button {
+  margin-top: var(--space-3);
+  padding: 0.6rem 1.25rem;
+  font: inherit;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--color-accent);
+  border: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+button:hover:not(:disabled) { background: var(--color-accent-hover); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.button-secondary {
+  color: var(--color-accent);
+  background: transparent;
+  border: 1px solid var(--color-accent);
+}
+
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+
+.empty {
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--color-muted);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+}
+
+.alert {
+  padding: var(--space-3);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-3);
+}
+.alert p { margin: 0; }
+.alert-error {
+  background: var(--color-high-bg);
+  color: var(--color-high-text);
+  border: 1px solid var(--color-high-text);
+}
+.alert-error .button-secondary {
+  color: var(--color-high-text);
+  border-color: var(--color-high-text);
+}
+
+.score-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+.score-label { margin: 0; color: var(--color-muted); font-size: 0.85rem; }
+.score-value { margin: 0; font-size: 2.5rem; font-weight: 700; line-height: 1.1; }
+
+.badge {
+  padding: var(--space-1) var(--space-3);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.badge-low { background: var(--color-low-bg); color: var(--color-low-text); }
+.badge-medium { background: var(--color-medium-bg); color: var(--color-medium-text); }
+.badge-high { background: var(--color-high-bg); color: var(--color-high-text); }
+
+.signals { margin: 0; }
+.signal-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.signal-row dt { color: var(--color-muted); }
+.signal-row dd { margin: 0; font-weight: 600; text-align: right; overflow-wrap: anywhere; }
+
+.breakdown { list-style: none; margin: 0; padding: 0; }
+.breakdown li {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
